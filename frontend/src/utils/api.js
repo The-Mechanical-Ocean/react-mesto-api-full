@@ -1,7 +1,13 @@
 class Api {
-  constructor({ baseUrl, headers }) {
-    this._headers = headers;
+  constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
+  }
+  
+  get _headers() {
+    return {
+        authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-Type': 'application/json'
+    }
   }
 
   _checkResponse(res) {
@@ -11,7 +17,7 @@ class Api {
     else {
         return Promise.reject(res.status)
     }
-}
+  }
 
   getProfile() {
     return fetch(`${this._baseUrl}/users/me`, {
@@ -82,8 +88,4 @@ class Api {
 
 export const api = new Api({
   baseUrl: 'https://api.The-Mechanical-Ocean.nomoredomains.sbs',
-  headers: {
-    authorization: '7f7db428-bf23-4100-97fa-70a8e1b5dfd3',
-    'Content-Type': 'application/json'
-  }
 });
