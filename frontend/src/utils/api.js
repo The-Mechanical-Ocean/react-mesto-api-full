@@ -81,7 +81,7 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-37',
+  baseUrl: 'https://api.The-Mechanical-Ocean.nomoredomains.sbs',
   headers: {
     authorization: '7f7db428-bf23-4100-97fa-70a8e1b5dfd3',
     'Content-Type': 'application/json'
