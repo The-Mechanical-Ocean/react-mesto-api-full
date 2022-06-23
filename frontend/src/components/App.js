@@ -71,8 +71,8 @@ function App() {
     if (loggedIn) {
       history.push('/');
       Promise.all([api.getInitialCards(), api.getProfile()])
-        .then(([cards, resUser]) => {
-          setCards(cards);
+        .then(([resCards, resUser]) => {
+          setCards(resCards.cards);
           setCurrentUser(resUser);
         })
         .catch((err) =>{console.log(`Ошибка: ${err}`)})        
