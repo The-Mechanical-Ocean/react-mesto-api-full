@@ -8,6 +8,7 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  outline: 1px solid red;
 }
 .cards__button-del:hover {
   opacity: 0.6;

@@ -6,15 +6,14 @@ const ForbiddenError = require('../errors/Forbidden');
 module.exports.getCards = (req, res, next) => {
   Card.find({})
     .populate('owner')
-    .then((cards) => res.send({ cards }))
+    .then((cards) => res.send(cards))
     .catch((err) => next(err));
 };
 
 module.exports.createCards = (req, res, next) => {
   const { name, link } = req.body;
-
   Card.create({ name, link, owner: req.user._id })
-    .then((card) => res.status(201).send({ card }))
+    .then((card) => res.status(201).send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Введенные данные некорректны'));
@@ -34,7 +33,7 @@ module.exports.likeCard = (req, res, next) => {
       if (!card) {
         throw new NotFoundError('Карточка не найдена');
       }
-      res.send({ card });
+      res.send(card);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -55,7 +54,7 @@ module.exports.dislikeCard = (req, res, next) => {
       if (!card) {
         throw new NotFoundError('Карточка не найдена');
       }
-      res.send({ card });
+      res.send(card);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -75,7 +74,7 @@ module.exports.deleteCard = (req, res, next) => {
       if (req.user._id === card.owner.toString()) {
         Card.findByIdAndRemove(req.params.cardId)
           .then(() => {
-            res.send({ card });
+            res.send(card);
           })
           .catch((err) => {
             if (err.name === 'CastError') {

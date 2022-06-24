@@ -158,7 +158,7 @@ function App() {
       checkToken(jwt)
       .then((res) => {
         if (res) {
-          setEmail({email: res.data.email});
+          setEmail({email: res.email});
           handleLoggedIn();
         }
       })
