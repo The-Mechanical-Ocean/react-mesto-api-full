@@ -72,7 +72,7 @@ function App() {
       history.push('/');
       Promise.all([api.getInitialCards(), api.getProfile()])
         .then(([resCards, resUser]) => {
-          setCards(resCards.cards);
+          setCards(resCards);
           setCurrentUser(resUser);
         })
         .catch((err) =>{console.log(`Ошибка: ${err}`)})        
