@@ -72,7 +72,6 @@ function App() {
       history.push('/');
       Promise.all([api.getInitialCards(), api.getProfile()])
         .then(([resCards, resUser]) => {
-          console.log(resCards.cards)
           setCards(resCards);
           setCards(resCards.reverse());
           setCurrentUser(resUser);
