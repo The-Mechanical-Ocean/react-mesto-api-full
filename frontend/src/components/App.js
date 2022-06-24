@@ -155,12 +155,12 @@ function App() {
   }
 
   function handleCheckToken() {
-    const jwt = localStorage.getItem('token');
+    const jwt = localStorage.getItem('jwt');
     if (jwt) {
       checkToken(jwt)
       .then((res) => {
         if (res) {
-          setEmail({email: res.email});
+          setEmail(res.email);
           handleLoggedIn();
         }
       })
