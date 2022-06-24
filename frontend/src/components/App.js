@@ -72,15 +72,17 @@ function App() {
       history.push('/');
       Promise.all([api.getInitialCards(), api.getProfile()])
         .then(([resCards, resUser]) => {
-          setCards(resCards.cards);
-          setCurrentUser(resUser.user);
+          console.log(resCards.cards)
+          setCards(resCards);
+          setCards(resCards.reverse());
+          setCurrentUser(resUser);
         })
         .catch((err) =>{console.log(`Ошибка: ${err}`)})        
     }
   }, [loggedIn])
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
       })
