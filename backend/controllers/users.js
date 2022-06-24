@@ -10,7 +10,7 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
-    .then((users) => res.send(users))
+    .then((users) => res.send({ users }))
     .catch((err) => next(err));
 };
 
@@ -20,7 +20,7 @@ module.exports.getUserById = (req, res, next) => {
       if (!users) {
         throw new NotFoundError('Пользователь не найден');
       }
-      res.send(users);
+      res.send({ users });
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -34,7 +34,7 @@ module.exports.getUserById = (req, res, next) => {
 module.exports.findUserMe = (req, res, next) => {
   User.findById(req.user._id)
     .then((users) => {
-      res.send(users);
+      res.send({ users });
     })
     .catch((err) => {
       next(err);
@@ -79,7 +79,7 @@ module.exports.updateUserInfo = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Пользователь не найден');
       }
-      res.send(user);
+      res.send({ user });
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -101,7 +101,7 @@ module.exports.updateUserAvatar = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Пользователь не найден');
       }
-      res.send(user);
+      res.send({ user });
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
