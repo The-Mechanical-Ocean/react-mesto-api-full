@@ -115,7 +115,7 @@ function App() {
   function handleUpdateCard(card) {
     api.addCard(card.name, card.link)
       .then((res) => {
-        setCards([res.card, ...cards])
+        setCards([res, ...cards])
         closeAllPopups()
       })
       .catch((err) => {console.log(`Ошибка: ${err}`)})   
