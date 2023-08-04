@@ -13,7 +13,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dep": "npm run build && scp -r ./build/* praktikum@51.250.5.68:/home/praktikum/frontend",
+    "dep": "npm run build && scp -r ./build/* praktikum@51.250.86.214:/home/praktikum/frontend",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",

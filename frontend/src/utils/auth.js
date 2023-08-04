@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.The-Mechanical-Ocean.nomoredomains.sbs';
+export const BASE_URL = 'https://api.mesto.alexkudrin.com';
 
 function checkResponse(res) {
     if (res.ok) {

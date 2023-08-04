@@ -1,3 +1,3 @@
 # react-mesto-api-full
 
-https://the-mechanical-ocean.nomoredomains.sbs
+https://mesto.alexkudrin.com
