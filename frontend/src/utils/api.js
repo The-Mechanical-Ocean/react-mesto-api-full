@@ -87,5 +87,5 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'https://api.The-Mechanical-Ocean.nomoredomains.sbs',
+  baseUrl: 'https://api.mesto.alexkudrin.com',
 });
