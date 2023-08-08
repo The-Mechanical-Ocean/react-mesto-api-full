@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.mesto.alexkudrin.com';
+export const BASE_URL = 'https://apimesto.alexkudrin.com';
 
 function checkResponse(res) {
     if (res.ok) {

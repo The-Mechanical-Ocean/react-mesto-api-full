@@ -87,5 +87,5 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'https://api.mesto.alexkudrin.com',
+  baseUrl: 'https://apimesto.alexkudrin.com',
 });
